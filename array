@@ -1,1 +1,147 @@
-ff
+<?php
+$data = array(
+
+        array(
+            "pid" => 1,
+            "name" => "TOTAL DES SUPERCARBURANTS",
+            "code" => "V505",
+            "rank" => 6,
+            "dateDebutCirculation" => "1990-01-01",
+            "dateFinCirculation" =>"",
+            "pname" => "Super SP95-E10",
+            "pcode" => "V018",
+            "gps_rank" => 6,
+        	),
+         array(
+            "pid" => 1,
+            "name" => "TOTAL DES SUPERCARBURANTS",
+            "code" => "V505",
+            "rank" => 6,
+            "dateDebutCirculation" => "1990-01-01",
+            "dateFinCirculation" =>"",
+            "pname" => "Super SP98-E5",
+            "pcode" => "V030",
+            "gps_rank" => 5,
+        	),
+         array(
+			"pid" =>1,
+            "name" =>"TOTAL DES SUPERCARBURANT",
+            "code" =>"V505",
+            "rank" =>"",
+            "dateDebutCirculation" =>"1990-01-05",
+            "dateFinCirculation" =>"",
+            "pname" =>"Super SP95-EP",
+            "pcode" =>"V020",
+            "gps_rank" =>4
+           ),
+        array(
+            "pid" => 1,
+            "name" => "TOTAL DES SUPERCARBURANTS",
+            "code" => "V505",
+            "rank" => 6,
+            "dateDebutCirculation" => "1990-01-01",
+            "dateFinCirculation" =>"",
+            "pname" => "Superéthanol E85",
+            "pcode" => "V035",
+            "gps_rank" => 7,
+        ),
+        array(
+            "pid"=> 2,
+            "name" => "TOTAL DES GAZOLES ROUTIERS",
+            "code" => "V515",
+            "rank" => 8,
+            "dateDebutCirculation" => "2019-01-01",
+            "dateFinCirculation" =>"", 
+            "pname" => "Gazole B7",
+            "pcode" => "V141",
+            "gps_rank" => 2,
+        ),
+        array(
+            "pid" => 2,
+            "name" => "TOTAL DES GAZOLES ROUTIERS",
+            "code" => "V515",
+            "rank" => 8,
+            "dateDebutCirculation" => "2019-01-01",
+           "dateFinCirculation" =>" ",
+            "pname" => "Gazole B10",
+            "pcode" => "V142",
+            "gps_rank" => 3,
+        ),
+
+        array(
+            "pid" => 2,
+            "name" => "TOTAL DES GAZOLES ROUTIERS",
+            "code" => "V515",
+            "rank" => "8",
+            "dateDebutCirculation" => "2019-01-01",
+            "dateFinCirculation" =>"",
+            "pname" => "Gazole B30",
+            "pcode" => "V145",
+            "gps_rank" => 4,
+        ),
+        array(
+            "pid" =>8,
+            "name" => "TOTAL DES CARBURANTS ALTERNATIFS",
+            "code" => "V520",
+            "rank" => 9,
+            "dateDebutCirculation" => "2019-01-01",
+            "dateFinCirculation" =>" ",
+            "pname" => "B100",
+            "pcode" => "V200",
+            "gps_rank" => 1,
+        ),
+        array(
+            "pid" => 8,
+            "name" => "TOTAL DES CARBURANTS ALTERNATIFS",
+            "code" => "V520",
+            "rank" => 9,
+            "dateDebutCirculation" => "2019-01-01",
+            "dateFinCirculation" =>"",
+            "pname" => "XTL",
+            "pcode" => "V201",
+            "gps_rank" => 2,
+        ),
+		array(
+            "pid" => 4,
+            "name" => "TOTAL DES FIOULS LOURDS",  
+            "code" => "V530",
+            "rank" => 11,
+            "dateDebutCirculation" =>"1990-01-01",
+            "dateFinCirculation" =>"", 
+            "pname"=>"Fiouls lourds hors centrales électriques",
+            "pcode" => "V185",
+            "gps_rank" =>1,
+        )
+);
+
+
+$unique_array = [];
+foreach($data as $element) {
+    $hash = $element['code'];
+    $unique_array[$hash] = $element;
+}
+$result = array_values($unique_array);
+
+
+$dataNew =[];
+foreach($result as $key1=>$value1){
+	
+	foreach($data as $key=>$value2){
+		if($value1['code'] == $value2['code']){
+			//$dataNew['elt'] =$value2['pname'];
+			$dataNew[]['elt']['name']= $value2['name'];
+			$dataNew['elt']['pname']= $value2['pname'];
+			$dataNew['elt']['code']= $value2['code'];
+			$dataNew['type'] ="Group";
+		}
+	}	
+}
+
+
+echo"<pre>";
+print_r($dataNew);
+//print_r($result);
+
+die;
+
+?>
