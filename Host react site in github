@@ -1,2 +1,109 @@
 step 1:-
 ===============
+Make a project in react
+create rempsitory and upload in git repo
+
+step 2
+======================
+
+REFERENCE LINK = https://create-react-app.dev/docs/deployment#github-pages
+
+======================================
+
+Add home url  =
+===============
+"homepage": "http://mywebsite.com/relativepath",
+  
+  like = https://mdmuzaffer.github.io/react // first username .github.io / repo
+  
+  step 3
+  =================
+  npm install --save gh-pages //install
+  
+  ==> To publish it at https://myusername.github.io/my-app, run:
+  
+  Step 4
+  ====================
+  
+  Add the following scripts in your package.json:
+  
+  
+    "scripts": {
++   "predeploy": "npm run build",
++   "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    
+    
+    =================================
+    
+    Step 5
+    ===================
+    
+    Tweak your package.json scripts to push deployments to master:
+    
+     "scripts": {
+    "predeploy": "npm run build",
+-   "deploy": "gh-pages -d build",
++   "deploy": "gh-pages -b master -d build",
+    
+    
+    Step 6
+    =========================
+    
+    Step 3: Deploy the site by running npm run deploy
+    
+    npm run deploy
+    
+    ================================
+    
+    Step7
+    ===================
+    
+    Step 4: For a project page, ensure your project’s settings use
+    
+    Finally, make sure GitHub Pages option in your GitHub project settings is set to use the gh-pages branch:
+    
+    Example = https://github.com/mdmuzaffer/react/settings/pages
+    
+    Select here  = GitHub Pages
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
