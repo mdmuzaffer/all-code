@@ -109,3 +109,22 @@ NOW RUN THE COMMAND
 
 php artisan tinker
 
+User::factory()->make();
+
+You should get a response similar to this:
+=> App\Models\User {#3477
+     name: "Dino Cajic",
+     email: "dinocajic@gmail.com",
+     email_verified_at: "2020-10-19 14:58:29",
+   }
+   
+   =============================
+   
+   User::factory()->count(50)->make();
+   
+   
+   User::factory()->count(50)->create();
+   
+   THIS CREATE COMMAND IS USE TO CEATE OF FAKER DATA
+   
+   tHANKS
