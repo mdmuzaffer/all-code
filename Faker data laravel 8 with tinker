@@ -1,1 +1,111 @@
 
+Example === https://blog.devgenius.io/laravel-8-x-database-seeders-fakers-and-factories-7cb759918124
+=========================================
+
+Create model, migration and factory -
+
+php artisan make:model Comment -mf
+
+
+open migration 
+===========================
+
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateCommentsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('comments', function (Blueprint $table) {
+            $table->id();
+			$table->integer('user_id');
+			$table->string('title');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('comments');
+    }
+}
+=======================================
+
+
+RUN THIS COMMAND AND CRETE TABLE
+
+php artisan migrate
+
+Open CommentFactory file and add beow code for inset data
+===========================
+
+
+
+
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Comment;
+class CommentFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+	
+	protected $model = Comment::class;
+	
+    public function definition()
+    {
+        return [
+            'user_id' => $this->faker->numberBetween($min = 1, $max = 50),
+            'title' => $this->faker->word(),
+        ];
+    }
+}
+==================================================
+
+
+
+Open model add filebale
+=================================
+
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Comment extends Model
+{
+    use HasFactory;
+	
+	protected $fillable = ['user_id','title'];
+}
+
+
+=====================================
+
+NOW RUN THE COMMAND 
+==========================
+
+php artisan tinker
+
